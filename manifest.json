@@ -1,0 +1,36 @@
+{
+    "manifest_version": 3,
+    "name": "Easy WA Access",
+    "description": "Access WA in file rusak_edit.php easily",
+    "version": "1.0",
+    "action": {
+      "default_popup": "popup/popup.html",
+      "default_icon": "icon.png"
+    },
+    "permissions": ["scripting", "clipboardWrite", "clipboardRead"],
+    "content_scripts": [
+        {
+            "js": ["scripts/main.js", "scripts/show_wa_button.js"],
+            "matches": [
+                "http://*/oltic/madiun/billing/my_billing/admin/rusak_add.php*",
+                "https://*/oltic/madiun/billing/my_billing/admin/rusak_add.php*",
+                "http://*/oltic/madiun/billing/my_billing/admin/rusak_edit.php*",
+                "https://*/oltic/madiun/billing/my_billing/admin/rusak_edit.php*"
+            ]
+        },
+        {
+            "js": ["scripts/main.js", "scripts/show_report_button.js"],
+            "matches": [
+                "http://*/oltic/madiun/billing/my_billing/admin/rusak_edit.php*",
+                "https://*/oltic/madiun/billing/my_billing/admin/rusak_edit.php*"
+            ]
+        },
+        {
+            "js": ["scripts/show_uncontacted_highlight.js"],
+            "matches": [
+                "http://*/oltic/madiun/billing/my_billing/admin/rusak.php*",
+                "https://*/oltic/madiun/billing/my_billing/admin/rusak.php*"
+            ]
+        }
+    ]
+  }
