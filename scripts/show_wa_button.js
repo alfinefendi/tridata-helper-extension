@@ -9,8 +9,6 @@ function format_wa_number(number) {
 }
 
 function send_whatsapp_message(number) {
-    number = "6282317424214"
-
     let no_pel = document.getElementById("no_pel").value
     let nama = document.getElementById("Nama").value
 
