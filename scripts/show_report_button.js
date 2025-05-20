@@ -40,6 +40,8 @@ function report_click() {
 }
 
 function init() {
+    create_ext_buttons_container()
+    
     button = create_button('Report', report_click)
     place_button(button)
     console.log("Show Report Button executed")

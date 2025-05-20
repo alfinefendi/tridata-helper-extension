@@ -8,6 +8,34 @@ function format_wa_number(number) {
     return number
 }
 
+function send_whatsapp_message(number) {
+    number = "6282317424214"
+
+    let no_pel = document.getElementById("no_pel").value
+    let nama = document.getElementById("Nama").value
+
+    let text = `Assalamualaikum Bapak/Ibu ${nama} No Pel : ${no_pel}\nPerkenalkan Kami dari Teknisi Wifi\nKami Mendapatkan Informasi bahwa wifinya mengalami gangguan\nMohon maaf, apakah sekarang masih belum bisa di gunakan nggih?`
+    fetch(wabot_url + "/api/whatsapp/send-message?clientId=" + bot_id, {
+        method: "POST",
+        body: JSON.stringify({
+            "recipient" : number,
+            "message" : text
+        }),
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": api_key,
+        }
+    })
+    .then((res) => {
+        if (res.status == 200) {
+            console.log("Berhasil mengirim pesan ke pelanggan")
+        }
+    })
+    .catch((res) => {
+        console.log("Gagal: " + res)
+    })
+}
+
 function create_whatsapp_text(number) {
     let no_pel = document.getElementById("no_pel").value
     let nama = document.getElementById("Nama").value
@@ -28,14 +56,26 @@ function wa_click() {
     copy_text(text)
 }
 
-function place_button(button) {
-    let form = document.getElementsByTagName("form")[0]
-    form.appendChild(button)
+function wa_send() {
+    let konfirmasi = confirm("Apakah ingin mengirim pesan kepada pelanggan?")
+    if (!konfirmasi) return;
+
+    let telp = document.getElementById("Telp").value
+    console.log("Nomor telepon: " + telp)
+    let formatted_telp = format_wa_number(telp)
+    console.log("Nomor telepon terformat: " + formatted_telp)
+    send_whatsapp_message(formatted_telp)
 }
 
 function init() {
-    button = create_button('WA', wa_click)
+    create_ext_buttons_container()
+
+    let button = create_button('WA', wa_click)
     place_button(button)
+
+    let send_button = create_button('SEND WA', wa_send)
+    place_button(send_button)
+
     console.log("Show WA Button executed")
 }
 
