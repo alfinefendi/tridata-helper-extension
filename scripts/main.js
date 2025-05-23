@@ -2,7 +2,7 @@ MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
 
 const wabot_url = "http://157.15.40.69:3000"
 const api_key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJ5YWhkaSIsImlhdCI6MTc0NzcyNTEwM30.YXHz-viVuBwJAnw6SUHBgqoildqgQtWqtg-Xpm5uiNo"
-const bot_id = "cmawbrtuy0001lm1spunu1yvz"
+const bot_id = "cmaxg5pv30001mh1t6yij0d74"
 
 let ext_buttons_container
 

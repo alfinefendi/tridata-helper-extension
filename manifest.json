@@ -31,6 +31,13 @@
                 "http://*/oltic/madiun/billing/my_billing/admin/rusak.php*",
                 "https://*/oltic/madiun/billing/my_billing/admin/rusak.php*"
             ]
+        },
+           {
+            "js": ["scripts/tools/input_cari_teknisi.js"],
+            "matches": [
+                "http://*/oltic/madiun/billing/my_billing/admin/rusak_edit.php*",
+                "https://*/oltic/madiun/billing/my_billing/admin/rusak_edit.php*"
+            ]
         }
     ]
   }
