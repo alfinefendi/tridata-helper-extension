@@ -60,11 +60,8 @@ function init() {
             labelOldTeknisi.innerHTML = "";
             const words = teknisi.value.toLowerCase().split(/\s+/);
             if (words.some(word => word.startsWith(keyword.toLowerCase()))) {
-            // lebih cocok
-            inputSelectTeknisi.selectedIndex = teknisi.selectedIndex;
+                inputSelectTeknisi.selectedIndex = teknisi.selectedIndex;
             }
-            // if (teknisi.value.toLowerCase().includes(keyword)) {
-            // }
         }
         if(keyword == "") {
             labelOldTeknisi.innerHTML = "kembali ke semula";
